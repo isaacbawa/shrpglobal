@@ -46,59 +46,52 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero with Flyer Background */}
-      <section className="relative overflow-hidden">
-        {/* Flyer images background */}
-        <div className="absolute inset-0 flex flex-col sm:flex-row">
-          <div className="relative w-full sm:w-1/2 h-1/2 sm:h-full">
-            <Image
-              src="/flyer1.jpg"
-              alt="SHRP PHRi Certification Flyer"
-              fill
-              className="object-cover object-top"
-              quality={100}
-              priority
-            />
-          </div>
-          <div className="relative w-full sm:w-1/2 h-1/2 sm:h-full">
-            <Image
-              src="/flyer2.jpg"
-              alt="SHRP SPHRi Certification Flyer"
-              fill
-              className="object-cover object-top"
-              quality={100}
-              priority
-            />
-          </div>
-        </div>
+      {/* Hero — text left, flyer right with seamless blend */}
+      <section className="relative overflow-hidden bg-primary-dark min-h-100 sm:min-h-120">
+        {/* Flyer image on the right side */}
+        <Image
+          src="/flyer1.png"
+          alt="SHRP International HR Certification Programme"
+          fill
+          sizes="(max-width: 640px) 100vw, 60vw"
+          className="object-cover object-top"
+          quality={100}
+          priority
+        />
 
-        {/* Semi-transparent overlay */}
-        <div className="absolute inset-0 bg-linear-to-br from-primary/85 to-primary-dark/85" />
+        {/* Gradient overlay: solid brand left → transparent right to reveal flyer */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--primary-dark)_0%,var(--primary-dark)_30%,rgba(160,24,48,0.85)_50%,rgba(160,24,48,0.3)_70%,transparent_90%)]" />
+        {/* Mobile: stronger overlay so text stays readable */}
+        <div className="absolute inset-0 bg-primary-dark/60 sm:bg-transparent" />
+        {/* Top/bottom vignette for polish */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(160,24,48,0.3)_0%,transparent_30%,transparent_70%,rgba(160,24,48,0.5)_100%)]" />
 
-        {/* Hero content */}
-        <div className="relative z-10 pt-16 pb-8 px-6">
-          <div className="max-w-5xl mx-auto text-center text-white">
-            <p className="text-sm uppercase tracking-widest mb-2 opacity-90">
-              International HR Certification Programme
-            </p>
-            <h1 className="text-3xl sm:text-4xl font-extrabold leading-tight mb-3">
-              Become a Globally Certified
-              <br />
-              Strategic HR Leader
-            </h1>
-            <p className="text-base opacity-90 max-w-xl mx-auto">
-              HRCI-accredited PHRi&#8482; &amp; SPHRi&#174; certifications.
-            </p>
-            <div className="flex justify-center gap-4 mt-6">
-              <span className="bg-white/20 border border-white/40 rounded-full px-4 py-1 text-sm font-semibold">
-                aPHRi&#8482;
-              </span>
-              <span className="bg-white/20 border border-white/40 rounded-full px-4 py-1 text-sm font-semibold">
-                PHRi&#8482;
-              </span>
-              <span className="bg-white/20 border border-white/40 rounded-full px-4 py-1 text-sm font-semibold">
-                SPHRi&#174;
-              </span>
+        {/* Hero content — left-aligned */}
+        <div className="relative z-10 py-16 sm:py-20 px-6">
+          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center sm:items-start">
+            <div className="sm:w-1/2 text-center sm:text-left text-white">
+              <p className="text-xs sm:text-sm uppercase tracking-widest mb-3 opacity-80">
+                International HR Certification Programme
+              </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
+                Become a Globally Certified
+                <br />
+                <span className="text-white/95">Strategic HR Leader</span>
+              </h1>
+              <p className="text-base sm:text-lg opacity-90 max-w-md">
+                HRCI-accredited PHRi&#8482; &amp; SPHRi&#174; certifications delivered by SHRP Strategic HR Centre.
+              </p>
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3 mt-6">
+                <span className="bg-white/15 border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold backdrop-blur-sm">
+                  aPHRi&#8482;
+                </span>
+                <span className="bg-white/15 border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold backdrop-blur-sm">
+                  PHRi&#8482;
+                </span>
+                <span className="bg-white/15 border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold backdrop-blur-sm">
+                  SPHRi&#174;
+                </span>
+              </div>
             </div>
           </div>
         </div>
